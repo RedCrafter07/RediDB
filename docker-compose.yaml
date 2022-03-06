@@ -1,4 +1,4 @@
-version: '1.0'
+version: '3.0'
 
 services:
   db:
@@ -8,7 +8,6 @@ services:
     expose:
       - 12018
     environment:
-      - HOST=0.0.0.0 #Change to 127.0.0.1 to access it outside of enviornment which the process is started in
       - USER="user" #Change - Default user (admin), currently the only user available
       - PASSWORD="password" #Change - Password for default user
       - PORT=12018
