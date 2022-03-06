@@ -12,5 +12,7 @@ COPY . .
 
 RUN tsc
 
+EXPOSE 12018
+
 CMD [ "npm", "run", "start" ]
 
