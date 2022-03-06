@@ -20,7 +20,65 @@ const log = console.log;
 let data: Record<string, Array<any>> = {};
 
 app.get('/', (req, res) => {
-	res.sendFile(`${__dirname}\\views\\default.html`);
+	res.send(`<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>RediDB default page</title>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+	
+			* {
+				margin: 0;
+			}
+	
+			body {
+				background-color: #222;
+				color: white;
+				text-align: center;
+				height: 100vh;
+				width: 100vw;
+				max-height: 100vh;
+				max-width: 100vw;
+				display: grid;
+				place-items: center;
+				font-family: 'Open Sans', Helvetica, sans-serif;
+			}
+	
+			hr {
+				opacity: 75%;
+			}
+	
+			a {
+				color: white;
+				opacity: 1;
+			}
+	
+			a:hover {
+				opacity: .5;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>RediDB default page</h1>
+			<br>
+			<br>
+			<p>This is the default page of the RediDB database. You found it!</p>
+			<br>
+			<hr>
+			<br>
+			<p>If you see this you've set up the database correctly. GG!</p>
+			<br>
+			<hr>
+			<br>
+			<p>Please look at <a href="https://r07.dev/db" target="_blank" ref="noopener noreferrer">the Documentation</a> and change user and password, if not changed yet.</p>
+		</div>
+	</body>
+	</html>`);
 });
 
 initDb();
