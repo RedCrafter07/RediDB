@@ -55,23 +55,5 @@
 		<br>
 		<p>Please look at <a href="https://r07.dev/db" target="_blank" ref="noopener noreferrer">the Documentation</a> and change user and password, if not changed yet.</p>
 	</div>
-
-	<script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
-	<script>
-		var socket = io();
-		socket.emit("auth", {password: "password", user: "user"})
-		socket.on("alert", m => console.log("ALERT:",m));
-		socket.emit("get", {database:"testDB"});
-		socket.on("get", (m) => {
-			console.log(m);
-		})
-
-		socket.emit("query", {database: "testDB", query: {type: "AMOGUS"}});
-		socket.on("query", (m) => {
-			console.log(m);
-		})
-
-		socket.emit("delete", {database:"testDB", query: {name: "MGTV"}})
-	</script>
 </body>
 </html>
