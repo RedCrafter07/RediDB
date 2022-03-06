@@ -118,15 +118,12 @@ server.listen({ host: process.env.HOST, port: process.env.PORT }, () => {
 function socket(server: http.Server) {
 	const io = new Server(server);
 	io.on('connection', socket => {
-		console.log('CONNECTED A SOCKET!');
 		socket.once('auth', m => {
 			if (m.password === process.env.PASSWORD && m.user === process.env.USER) {
 				socket.emit('alert', 'CONNECTED SUCCESSFULLY!');
-				console.log('SOCKET AUTHORIZED!');
 			} else {
 				socket.emit('alert', 'Auth failure.');
 				socket.disconnect();
-				console.log('SOCKET UNAUTHORIZED!');
 				return;
 			}
 
@@ -162,6 +159,8 @@ function socket(server: http.Server) {
 					return;
 				}
 				data[database] = [];
+
+				socket.emit('createDatabase', 'success');
 			});
 
 			socket.on('add', m => {
@@ -172,6 +171,7 @@ function socket(server: http.Server) {
 				}
 
 				data[database].push(inp);
+				socket.emit('add', 'success');
 			});
 
 			socket.on('edit', m => {
@@ -199,6 +199,8 @@ function socket(server: http.Server) {
 						data[database][data[database].indexOf(e)][k] = inp[k];
 					});
 				});
+
+				socket.emit('edit', 'success');
 			});
 
 			socket.on('delete', m => {
@@ -220,6 +222,8 @@ function socket(server: http.Server) {
 					const i = data[database].indexOf(e);
 					if (i > -1) data[database].splice(i, 1);
 				});
+
+				socket.emit('add', 'success');
 			});
 		});
 	});
