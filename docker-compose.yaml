@@ -1,0 +1,19 @@
+version: '1.0'
+
+services:
+  db:
+    image: redcrafter07/redi-db:0.1
+    ports:
+      - 12018:12018
+    expose:
+      - 12018
+    environment:
+      - HOST=0.0.0.0 #Change to 127.0.0.1 to access it outside of enviornment which the process is started in
+      - USER="user" #Change - Default user (admin), currently the only user available
+      - PASSWORD="password" #Change - Password for default user
+      - PORT=12018
+    volumes:
+      - redi-db:/data.json:rw
+
+volumes:
+  redi-db:
