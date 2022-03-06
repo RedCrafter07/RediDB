@@ -3,10 +3,7 @@ import chalk from 'chalk';
 import express from 'express';
 import bodyParser from 'body-parser';
 import http from 'http';
-import dotenv from 'dotenv';
 import { Server } from 'socket.io';
-
-dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
@@ -86,13 +83,17 @@ initDb();
 // Reading Database
 async function readDatabase() {
 	return await JSON.parse(
-		await fs.readFileSync('./data.json', { encoding: 'utf8' })
+		await fs.readFileSync('./data/data.json', { encoding: 'utf8' })
 	);
 }
 
 // Writing stuff to Database
 async function writeToDatabase(data: Record<string, unknown>) {
-	await fs.writeFileSync('./data.json', JSON.stringify(data));
+	try {
+		await fs.writeFileSync('./data/data.json', JSON.stringify(data));
+	} catch (e) {
+		await fs.mkdirSync('./data');
+	}
 }
 
 // Initializing Database
@@ -111,7 +112,7 @@ async function initDb() {
 	log('DATA', data);
 }
 
-server.listen({ host: process.env.HOST, port: process.env.PORT }, () => {
+server.listen({ port: process.env.PORT }, () => {
 	log(chalk.blue('[WEB]: Started!'));
 });
 
