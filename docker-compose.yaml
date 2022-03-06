@@ -8,11 +8,11 @@ services:
     expose:
       - 12018
     environment:
-      - USER="user" #Change - Default user (admin), currently the only user available
-      - PASSWORD="password" #Change - Password for default user
+      - USER=user #Change - Default user (admin), currently the only user available
+      - PASSWORD=password #Change - Password for default user
       - PORT=12018
     volumes:
-      - redi-db:/data.json:rw
+      - redi-db:/data:rw
 
 volumes:
   redi-db:
