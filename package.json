@@ -8,17 +8,13 @@
 		"dev": "nodemon -e \"ts\" --exec \"npm run run:dev\"",
 		"build": "tsc",
 		"start": "node .",
-		"build:docker": "docker build -t redcrafter07/redi-db:0.1 ."
+		"build:docker": "docker build -t redcrafter07/redi-db:0.2 ."
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/RedCrafter07/RediDB.git"
 	},
-	"keywords": [
-		"database",
-		"json",
-		"nosql"
-	],
+	"keywords": [ "database", "json", "nosql" ],
 	"author": "RedCrafter07",
 	"license": "MIT",
 	"bugs": {

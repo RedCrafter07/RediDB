@@ -224,7 +224,7 @@ function socket(server: http.Server) {
 					if (i > -1) data[database].splice(i, 1);
 				});
 
-				socket.emit('add', 'success');
+				socket.emit('delete', 'success');
 			});
 		});
 	});

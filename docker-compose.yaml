@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   db:
-    image: redcrafter07/redi-db:0.1
+    image: redcrafter07/redi-db:0.2
     ports:
       - 12018:12018
     expose:
