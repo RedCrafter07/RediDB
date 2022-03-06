@@ -14,7 +14,11 @@
 		"type": "git",
 		"url": "git+https://github.com/RedCrafter07/RediDB.git"
 	},
-	"keywords": [ "database", "json", "nosql" ],
+	"keywords": [
+		"database",
+		"json",
+		"nosql"
+	],
 	"author": "RedCrafter07",
 	"license": "MIT",
 	"bugs": {
