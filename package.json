@@ -7,17 +7,14 @@
 		"run:dev": "tsc && node .",
 		"dev": "nodemon -e \"ts\" --exec \"npm run run:dev\"",
 		"build": "tsc",
-		"start": "node ."
+		"start": "node .",
+		"build:docker": "docker build -t redidb ."
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/RedCrafter07/RediDB.git"
 	},
-	"keywords": [
-		"database",
-		"json",
-		"nosql"
-	],
+	"keywords": [ "database", "json", "nosql" ],
 	"author": "RedCrafter07",
 	"license": "MIT",
 	"bugs": {
