@@ -171,6 +171,8 @@ function socket(server: http.Server) {
 					return;
 				}
 
+				inp['__id'] = data[database].length;
+
 				data[database].push(inp);
 				socket.emit('add', 'success');
 			});
@@ -225,6 +227,14 @@ function socket(server: http.Server) {
 				});
 
 				socket.emit('delete', 'success');
+			});
+
+			socket.on('getDBs', () => {
+				socket.emit('getDBs', Object.keys(data));
+			});
+
+			socket.on('getVersion', () => {
+				socket.emit('getVersion', '0.3');
 			});
 		});
 	});
