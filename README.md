@@ -1,4 +1,5 @@
 # RediDB
+## Important: This was discontinued.
 RedCrafter07's version of MongoDB
 
 RediDB is a fast and simple database (or datastore, if you want to be specific) inspired by MongoDB. In this readme, you will be guided through the installation process of RediDB.
